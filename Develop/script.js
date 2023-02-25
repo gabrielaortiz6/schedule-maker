@@ -1,4 +1,6 @@
-var saveBtn = $('.saveBtn')
+var saveBtn = $('.saveBtn');
+var currentTime = dayjs().format('HH');
+console.log(currentTime)
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
@@ -8,20 +10,37 @@ $(function () {
   // TODO: Add a listener for click events on the save button. 
   saveBtn.click(function(event) {
     event.preventDefault();
-    $
+    
      var id = $(this).parent().attr('id');
-      //remove console log
+    
       console.log(id);
        //This code should use the id in the containing time-block as a key to save the user input in local storage. HINT: What does `this` reference in the click listener function? How can DOM traversal be used to get the "hour-x" id of the time-block containing the button that was clicked? How might the id be useful when saving the description in local storage?
 
        //$.each might need to use
       localStorage.setItem('id', id);
+  });
 
-      var currentTime = dayjs().format('dddd, MMMM D YYYY, hh')
-      console.log(currentTime);
-      
-  });
-  });
+  $(".time-block").each(function () {
+
+    var timeBlock = $(this).attr("id").match(/\d+$/);
+console.log(timeBlock);
+    if (currentTime == timeBlock) {
+     $(this).removeClass("future");
+      $(this).removeClass("past");
+      $(this).addClass("present");
+
+    } else if (currentTime < timeBlock) {
+      $(this).removeClass("present")
+      $(this).removeClass("past")
+      $(this).addClass("future")
+
+    } else if (currentTime > timeBlock) {
+      $(this).removeClass("present")
+      $(this).removeClass("future")
+      $(this).addClass("past")
+    }
+});
+    });
   
   //
   // TODO: Add code to apply the past, present, or future class to each time
