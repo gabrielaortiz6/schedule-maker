@@ -1,6 +1,6 @@
 var saveBtn = $('.saveBtn');
 var currentDayEl = $('#currentDay');
-var allUserInput = [];
+var arr = {};
 //current time in military time format
 var currentTime = dayjs().format('HH');
 
@@ -11,22 +11,23 @@ var currentTime = dayjs().format('HH');
 $(function () {
   // Click listener event targeting the Save Button
   saveBtn.click(function(event) {
-    event.preventDefault();
+    //event.preventDefault();
     
     //getting id of each time block div once button is clicked
      var id = $(this).parent().attr('id');
-    console.log(id)
-    //gets user input into the textarea
+
+    //saves user input into the textarea as variable
      var userText = $(this).prev().val();
-     console.log(userText)
 
-     localStorage.setItem(id, userText)
+     //Stores id of the time-block that user clicks as a key and the user input into textarea as value 
+     localStorage.setItem(id, userText);
 
-       //This code should use the id in the containing time-block as a key to save the user input in local storage. HINT: What does `this` reference in the click listener function? How can DOM traversal be used to get the "hour-x" id of the time-block containing the button that was clicked? How might the id be useful when saving the description in local storage?
-
-       //saves to local storage --- issue, only saying one value with id name... need to figure out if each
-      //localStorage.setItem(id, userInput);
-     
+     Object.entries(localStorage).forEach(([key, value]) => {
+      if (key.startsWith("hour")) {
+        arr[key] = value;
+      }
+    });
+    console.log(arr)
   });
 
   //Applies past, present or future class to each time block by comparing the id to the current hour
@@ -53,8 +54,12 @@ $(function () {
     } 
 
     //figure out if i needed other else if that targets time after work day and sets it all to either past or future
-});
-
+    });
+  
+    // TODO: Add code to get any user input that was saved in localStorage and set
+    // the values of the corresponding textarea elements. HINT: How can the id
+    // attribute of each time-block be used to do this?
+   
     });
   
   
