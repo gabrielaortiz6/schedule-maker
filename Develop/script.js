@@ -1,5 +1,6 @@
 var saveBtn = $('.saveBtn');
-var currentDayEl = $('#currentDay')
+var currentDayEl = $('#currentDay');
+var userInput = [];
 //current time in military time format
 var currentTime = dayjs().format('HH');
 
@@ -14,12 +15,16 @@ $(function () {
     
     //getting id of each time block div once button is clicked
      var id = $(this).parent().attr('id');
-    
-      console.log(id);
+
+    //gets user input into the textarea
+     var userText = $(this).prev().val();
+     console.log(userText)
+
        //This code should use the id in the containing time-block as a key to save the user input in local storage. HINT: What does `this` reference in the click listener function? How can DOM traversal be used to get the "hour-x" id of the time-block containing the button that was clicked? How might the id be useful when saving the description in local storage?
 
-       //saves to local storage --- issue, only saying one value with id name... need to figure out if i should use each
-      localStorage.setItem('id', id);
+       //saves to local storage --- issue, only saying one value with id name... need to figure out if each
+      //localStorage.setItem(id, userInput);
+     
   });
 
   //Applies past, present or future class to each time block by comparing the id to the current hour
@@ -54,10 +59,9 @@ $(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
   
+  // Displays current date in header
   var currentDate = dayjs().format('dddd, MMMM D, YYYY');
   currentDayEl.text(currentDate);
-  //add ordinal function im feeling spicy
+  //add ordinal function if im feeling spicy
 //});
