@@ -29,9 +29,15 @@ $(function () {
       }
     });
 
-    for (const [key, value] of Object.entries(storedArray)) {
-      console.log(`${key}: ${value}`);
-    }
+    $.each(storedArray, function(key, value) {
+      console.log(key, value);
+      if (key == id) {
+        userText.textContent = value;
+      }
+  });
+    // for (const [key, value] of Object.entries(storedArray)) {
+    //   console.log(`${key}: ${value}`);
+    // }
    
     // TODO: Add code to get any user input that was saved in localStorage and set
     // the values of the corresponding textarea elements. HINT: How can the id
