@@ -1,6 +1,6 @@
 var saveBtn = $('.saveBtn');
 var currentDayEl = $('#currentDay');
-var arr = {};
+var storedArray = {};
 //current time in military time format
 var currentTime = dayjs().format('HH');
 
@@ -22,12 +22,21 @@ $(function () {
      //Stores id of the time-block that user clicks as a key and the user input into textarea as value 
      localStorage.setItem(id, userText);
 
+     //retrieves stored key-value pairs and makes them the value for the empty object variable storedArray
      Object.entries(localStorage).forEach(([key, value]) => {
       if (key.startsWith("hour")) {
-        arr[key] = value;
+        storedArray[key] = value;
       }
     });
-    console.log(arr)
+
+    for (const [key, value] of Object.entries(storedArray)) {
+      console.log(`${key}: ${value}`);
+    }
+   
+    // TODO: Add code to get any user input that was saved in localStorage and set
+    // the values of the corresponding textarea elements. HINT: How can the id
+    // attribute of each time-block be used to do this?
+    //figure out how to separate this object and set value of each textarea accordingly
   });
 
   //Applies past, present or future class to each time block by comparing the id to the current hour
@@ -55,17 +64,7 @@ $(function () {
 
     //figure out if i needed other else if that targets time after work day and sets it all to either past or future
     });
-  
-    // TODO: Add code to get any user input that was saved in localStorage and set
-    // the values of the corresponding textarea elements. HINT: How can the id
-    // attribute of each time-block be used to do this?
-   
     });
-  
-  
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
   
   // Displays current date in header
   var currentDate = dayjs().format('dddd, MMMM D, YYYY');
