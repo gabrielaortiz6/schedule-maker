@@ -39,6 +39,7 @@ The following animation demonstrates the application functionality:
 <!--END_SECTION:update_image-->
 
 ## Link to Deployed Website
+[Link to deployed website](https://gabrielaortiz6.github.io/schedule-maker/)
 
 - - -
 © 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
