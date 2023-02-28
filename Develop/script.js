@@ -1,5 +1,6 @@
 var saveBtn = $('.saveBtn');
 var currentDayEl = $('#currentDay');
+//empty array to assign to the local storage key-value pairs
 var storedArray = [];
 //current time in military time format
 var currentTime = dayjs().format('HH');
@@ -7,16 +8,14 @@ var currentTime = dayjs().format('HH');
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-
-
-
 $(function () {
-  // Click listener event targeting the Save Button
+  //loops through local storage key-value pairs
   Object.entries(localStorage).forEach(([key, value]) => {
     if (key.startsWith("hour")) {
       storedArray[key] = value;
     }
   });
+
   var keyValuePairs = Object.entries(storedArray);
   
   keyValuePairs.forEach(([key, value]) => {
@@ -24,10 +23,11 @@ $(function () {
     console.log(key);
     //value is what we want to set as textarea value
     console.log(value);
+    //targets id with key, then selects the textarea, which is a child of corresponding id's <div> and sets the value of it to the value that was in local storage
     $('#' + key).children('.description').val(value);
     });
     
-
+// Click listener event targeting the Save Button
   saveBtn.click(function(event) {
     event.preventDefault();
     
@@ -39,15 +39,6 @@ $(function () {
 
      //Stores id of the time-block that user clicks as a key and the user input into textarea as value 
      localStorage.setItem(id, userText);
-
-     //retrieves stored key-value pairs and makes them the value for the empty object variable storedArray
-
-
-
-   
-    // TODO: Add code to get any user input that was saved in localStorage and set
-    // the values of the corresponding textarea elements. HINT: How can the id
-    // attribute of each time-block be used to do this?
   });
 
   //Applies past, present or future class to each time block by comparing the id to the current hour
@@ -72,8 +63,6 @@ $(function () {
       $(this).removeClass("future")
       $(this).addClass("past")
     } 
-
-    //figure out if i needed other else if that targets time after work day and sets it all to either past or future
     });
   
   // Displays current date in header
