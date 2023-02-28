@@ -41,5 +41,8 @@ The following animation demonstrates the application functionality:
 ## Link to Deployed Website
 [Link to deployed website](https://gabrielaortiz6.github.io/schedule-maker/)
 
+## Note: Code Source
+On lines 12-18 in the script.js file, the Object.entries portion of the code was found on the forum Stack Overflow. Instructor assisted with line 20-22 of script.js. The ".match" on line 43 on script.js was also found on Stack Overflow. 
+
 - - -
 © 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
