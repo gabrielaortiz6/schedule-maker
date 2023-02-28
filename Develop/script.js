@@ -5,9 +5,8 @@ var storedArray = [];
 //current time in military time format
 var currentTime = dayjs().format('HH');
 
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
+// Wraps all the code to ensure that the code isn't run until the browser has finished rendering all
+// the elements in the html.
 $(function () {
   //loops through local storage key-value pairs
   Object.entries(localStorage).forEach(([key, value]) => {
@@ -19,10 +18,6 @@ $(function () {
   var keyValuePairs = Object.entries(storedArray);
   
   keyValuePairs.forEach(([key, value]) => {
-    //key matches id of the container/timeblock element
-    console.log(key);
-    //value is what we want to set as textarea value
-    console.log(value);
     //targets id with key, then selects the textarea, which is a child of corresponding id's <div> and sets the value of it to the value that was in local storage
     $('#' + key).children('.description').val(value);
     });
@@ -47,7 +42,7 @@ $(function () {
     //Takes only the numerical part of the id so it can becompared to current time.
     var timeBlock = $(this).attr("id").match(/\d+$/);
 
-    //Conditional statements comparing current time (military) to the numerical value of each timeblock's id
+    //Conditional statements comparing current time (military) to the numerical value of each timeblock's id. Then, it removes or add the class needed for styling respectively
     if (currentTime == timeBlock) {
      $(this).removeClass("future");
       $(this).removeClass("past");
