@@ -2,7 +2,7 @@
 
 ## Description
 
-
+This website is intended to help users manage their work-day schedule, from 9AM to 5PM. The user will be able to clearly see the current date, in the header. Every hour timeblock is color-coded to represent whether it is in the past (gray), present (red), or future (green) in order and it updates according to the time of day. When the user types in a task or event and clicks the save button, their input will be saved.  If the user refreshes the page, their input will still be there, unless they choose to delete it or write something else. 
 
 ## User Story
 
@@ -32,10 +32,10 @@ THEN the saved events persist
 
 ## Screenshot of Website
 The following animation demonstrates the application functionality:
-
-<!-- @TODO: create ticket to review/update image) -->
 <!--START_SECTION:update_image-->
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
+![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/screenshot-schedule-maker.gif)
+
+![Still screenshot of website](./Assets/screenshot-schedule-maker-still.png)
 <!--END_SECTION:update_image-->
 
 ## Link to Deployed Website

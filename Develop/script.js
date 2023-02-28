@@ -63,5 +63,4 @@ $(function () {
   // Displays current date in header
   var currentDate = dayjs().format('dddd, MMMM D, YYYY');
   currentDayEl.text(currentDate);
-  //add ordinal function if im feeling spicy
 });
